@@ -2,13 +2,13 @@ require("dotenv").config();
 
 module.exports = {
     development:{
-        database: "db-name",
+        database: "alamood-depression",
         username: "root",
         password: "root",
         host: "localhost",
         dialect: "mysql",
-        port_db: "3306",
-        port://port ที่อยากจะใช้ แนะนำ 3000 หรือ 4000,
+        port_db: "8889",
+        port:4000,
     },
     test:{
         environment: process.env.NODE_ENV,

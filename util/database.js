@@ -36,41 +36,54 @@ sequelize
 
     //! Models
 
-    db.file = require("../model/file")(sequelize, Sequelize);
+    db.user = require("../model/user")(sequelize, Sequelize);
 
-    db.folder = require("../model/folder")(sequelize, Sequelize);
+    db.daily_mood = require("../model/daily_mood")(sequelize, Sequelize);
 
-    db.folder_level = require("../model/folder_level")(sequelize, Sequelize);
+    db.history = require("../model/history")(sequelize, Sequelize);
+
+    db.results = require("../model/results")(sequelize, Sequelize);
+
+    db.motivation = require("../model/motivation")(sequelize, Sequelize);
+
+    db.sound_therapy = require("../model/sound_therapy")(sequelize, Sequelize);
+
+    db.image_therapy = require("../model/image_therapy")(sequelize, Sequelize);
+
+    db.movie_therapy = require("../model/movie_therapy")(sequelize, Sequelize);
 
 
     /////////////////////////////// Relation //////////////////////////////////////
 
-    // Folder relations
-    db.folder.hasMany(db.file,{
-        foreignKey: "folder_id",
-        onDelete: "cascade",
+    // User relations
+    db.user.hasMany(db.daily_mood,{
+        foreignKey: "user_id",
+        // onDelete: "cascade",
         // constraints : true,
     });
 
-    db.folder.hasMany(db.folder,{
-        foreignKey: "parent_folder_id",
-        // onDelete: "cascade"
-    })
-
-    db.folder.belongsTo(db.folder_level,{
-        foreignKey: "folder_id",
+    db.daily_mood.belongsTo(db.user,{
+        foreignKey: "user_id",
     });
 
-    // folder level relations 
-    db.folder_level.hasMany(db.folder,{
-        foreignKey: "folder_level_id",
+    db.user.hasMany(db.results,{
+        foreignKey: "user_id",
         // onDelete: "cascade",
-        // constraints: true
+        // constraints : true,
     });
 
-    // file relations
-    db.file.belongsTo(db.folder,{
-        foreignKey: "folder_id"
+    db.results.belongsTo(db.user,{
+        foreignKey: "user_id",
+    });
+
+    db.user.hasMany(db.history,{
+        foreignKey: "user_id",
+        // onDelete: "cascade",
+        // constraints : true,
+    });
+
+    db.history.belongsTo(db.user,{
+        foreignKey: "user_id",
     });
 
 
