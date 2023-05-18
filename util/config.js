@@ -2,7 +2,7 @@ require("dotenv").config();
 
 module.exports = {
     development:{
-        database: "alamood-depression",
+        database: "alamood_depression",
         username: "root",
         password: "root",
         host: "localhost",

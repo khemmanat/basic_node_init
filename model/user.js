@@ -1,53 +1,53 @@
+const {DataTypes} = require("sequelize");
 module.exports = (sequelize, Sequelize) => {
   // ชื่อ ตัวแปร ที่ให้เหมือนกับชื่อ table
-  const user = sequelize.define(
+    return sequelize.define(
       //ชื่อ ตาราง
       "user",
       {
           // แต่ละ column พร้อมประเภทตัวแปร
           user_id: {
-              type: Sequelize.INTEGER,
+              type: DataTypes.INTEGER,
               field: "user_id",
               primaryKey: true,
               autoIncrement: true,
-            },
+          },
           firstname: {
-              type: Sequelize.STRING,
+              type: DataTypes.STRING,
               field: "firstname",
-            },
-            lastname: {
-              type: Sequelize.STRING,
+          },
+          lastname: {
+              type: DataTypes.STRING,
               field: "lastname",
-            },
-            telno: {
-              type: Sequelize.STRING,
+          },
+          telno: {
+              type: DataTypes.STRING,
               field: "telno",
-            },
-            profile_image: {
-              type: Sequelize.STRING,
+          },
+          profile_image: {
+              type: DataTypes.STRING,
               field: "profile_image",
-            },
-            email:{
-              type: Sequelize.STRING,
+          },
+          email: {
+              type: DataTypes.STRING,
               field: "email",
-            },
-            address:{
-              type: Sequelize.STRING,
+          },
+          address: {
+              type: DataTypes.STRING,
               field: "address",
-            },
-            username:{
-              type: Sequelize.STRING,
+          },
+          username: {
+              type: DataTypes.STRING,
               field: "username",
-            },
-            password:{
-              type: Sequelize.STRING,
+          },
+          password: {
+              type: DataTypes.STRING,
               field: "password",
-            }
+          }
       },
       {
           freezeTableName: true,
           underscored: true,
       }
   );
-  return user;
 };

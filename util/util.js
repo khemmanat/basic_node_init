@@ -11,10 +11,6 @@ exports.errorLog = (f_name, error) => {
 
 exports.castStringToBoolean = (value) => {
   var ret
-  if (value === "true") {
-    ret = true
-  } else {
-    ret = false
-  }
+  ret = value === "true";
   return ret
 }

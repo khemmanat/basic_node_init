@@ -1,6 +1,4 @@
 //import lib
-const { Op } = require("sequelize");
-const moment = require("moment");
 const database = require("../util/database");
 const User = database.user;
 
@@ -13,28 +11,28 @@ exports.create = async (data) => {
 };
 
 exports.editByID = async (user_id, data) => {
-  try{    
+  try{
       return await User.update(data,{
-          where: { 
+          where: {
               user_id: user_id,
           },
       });
   }catch(err){
       throw err;
   }
-};  
+};
 
 exports.editByEmail = async (email, data) => {
-    try{    
+    try{
         return await User.update(data,{
-            where: { 
+            where: {
                 email: email,
             },
         });
     }catch(err){
         throw err;
     }
-  };  
+  };
 
 exports.getAll = async () =>{
   try{
@@ -46,26 +44,26 @@ exports.getAll = async () =>{
 
 exports.getByID = async (user_id) =>{
   try{
-      return await User.findOne({ 
+      return await User.find({
           where:{
               user_id: user_id,
       },
   });
   }catch (err){
       throw err;
-  };
+  }
 };
 
 exports.getByEmail = async (email) =>{
   try{
-      return await User.findOne({ 
+      return await User.find({
           where:{
               email: email,
       },
   });
   }catch (err){
       throw err;
-  };
+  }
 };
 
 exports.DeleteByID = async (user_id) => {
@@ -77,7 +75,7 @@ exports.DeleteByID = async (user_id) => {
       })
   }catch (err){
       throw err;
-  };
+  }
 };
 
 exports.DeleteByEmail = async (email) => {
@@ -89,5 +87,5 @@ exports.DeleteByEmail = async (email) => {
       })
   }catch (err){
       throw err;
-  };
+  }
 };
